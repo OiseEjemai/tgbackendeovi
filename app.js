@@ -15,10 +15,11 @@ const bot = new TelegramBot(BOT_TOKEN, { polling: true });
 bot.onText(/\/start/, async (msg) => {
   const chatId = msg.chat.id;
 
-  await bot.sendMessage(chatId, 
-    "👋 Welcome to *Eovi*! \n\n"
-    + "Eovi is a social media platform where you can *post, comment, like, and follow* other users. \n\n"
-    + "Need help? Use the /help command to learn more about Eovi and how to get started! 🚀", 
+  await bot.sendMessage(
+    chatId,
+    "👋 *Welcome to Eovi!* \n\n"
+    + "Eovi is a *social media app* where you can *post, comment, like, and follow* others. Stay connected and explore engaging content! 🌍 \n\n"
+    + "🔹 *Tap below to start using Eovi!* 👇", 
     {
       reply_markup: {
         inline_keyboard: [[{ text: "🌐 Open Eovi", web_app: { url: FRONTEND_URL } }]],
@@ -27,23 +28,29 @@ bot.onText(/\/start/, async (msg) => {
   );
 });
 
+
 bot.onText(/\/help/, async (msg) => {
   const chatId = msg.chat.id;
 
-  await bot.sendMessage(chatId, 
-    "📌 *Eovi Help Guide* \n\n"
-    + "Eovi is a social media app where you can *post, comment, like, and follow* other users. \n\n"
-    + "🔹 *How to Get Started:* \n"
-    + "1️⃣ *Sign up* for an account to unlock all features. Provide details like *Name, Username, and Email*.\n"
-    + "2️⃣ Once signed up, you’re all set to explore and connect with others!\n\n"
-    + "To start using Eovi, type /start or click the button below. 👇", 
+  await bot.sendMessage(
+    chatId,
+    "📌 *Need help with Eovi?* \n\n"
+    + "Eovi lets you: \n"
+    + "✅ *Post & share* your thoughts\n"
+    + "✅ *Like & comment* on posts\n"
+    + "✅ *Follow & connect* with others\n\n"
+    + "🎯 *Getting started is simple!* \n"
+    + "1️⃣ *Sign up* with your Name & Username\n"
+    + "2️⃣ Start exploring and engaging with the community! \n\n"
+    + "🛠 For further assistance, visit our support or use /start to relaunch.", 
     {
       reply_markup: {
-        inline_keyboard: [[{ text: "🚀 Get Started", web_app: { url: FRONTEND_URL } }]],
+        inline_keyboard: [[{ text: "🚀 Open Eovi", web_app: { url: FRONTEND_URL } }]],
       },
     }
   );
 });
+
 
 
 const PORT = process.env.PORT || 3000;
